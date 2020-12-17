@@ -83,7 +83,10 @@ extension Currency {
         }
 
         convenience init(locale: Locale) {
-            let code = locale.currencyCode!
+						var code = "EUR"
+						if let c = locale.currencyCode {
+							code = c
+						}
             let symbol = locale.currencySymbol
 
             let fmtr = NumberFormatter()
